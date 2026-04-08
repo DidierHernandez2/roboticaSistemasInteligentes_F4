@@ -1,0 +1,11 @@
+# Optional: if empty => recognize anyone
+string[] name_request
+
+# Optional: 0 => use node default
+float32 min_confidence
+---
+# One entry per detected face (aligned with bounding_boxes/features/confidence)
+string[] name_response
+float32[] confidence
+string[] features
+vision_msgs/BoundingBox2D[] bounding_boxes

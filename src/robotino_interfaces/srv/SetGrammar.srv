@@ -1,0 +1,5 @@
+string mode          # FREE | NAMES | DRINKS | LOCATIONS | YESNO | CUSTOM
+string[] phrases     # used only when mode=CUSTOM (otherwise ignored)
+---
+bool ok
+string message

@@ -1,0 +1,37 @@
+# =========================
+# Request
+# =========================
+
+# Optional: if empty => process everyone
+string[] name_request
+
+# Optional: 0 => use node default
+float32 min_confidence
+
+# Optional: try to compute 3D keypoints if depth is available
+bool want_3d
+
+# Optional: publish annotated debug image
+bool publish_debug
+
+---
+# =========================
+# Response
+# =========================
+
+std_msgs/Header header     # timestamp + frame_id used
+
+# Pose data (flat numeric array)
+# Layout:
+#   - If 2D: [num_people, 17, 2]
+#   - If 3D: [num_people, 17, 3]
+# Flattened row-major:
+#   person0_kp0_xy(z), person0_kp1_xy(z), ..., personN_kp16_xy(z)
+
+float32[] keypoints
+
+uint32 num_people          # inferred shape helper
+bool used_3d               # tells client stride = 2 or 3
+
+bool success
+string status

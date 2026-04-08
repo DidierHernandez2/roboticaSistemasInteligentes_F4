@@ -1,0 +1,7 @@
+slam_toolbox:
+  ros__parameters:
+    use_odom: false
+    use_scan_matching: true
+    max_laser_range: 12.0
+    minimum_time_interval: 0.5
+    transform_timeout: 0.2

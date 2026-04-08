@@ -1,0 +1,7 @@
+# Request is empty
+---
+
+# Response contains a Detection2DArray
+vision_msgs/Detection2DArray detections
+string[] class_names
+geometry_msgs/PoseStamped[] poses
