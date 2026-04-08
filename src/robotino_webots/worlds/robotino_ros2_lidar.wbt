@@ -1,0 +1,59 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/festo/robotino3/protos/Robotino3.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/festo/robotino3/protos/Robotino3HokuyoMountingSupport.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/hokuyo/protos/HokuyoUrg04lxug01.proto"
+
+DEF WheelMat Material {
+  diffuseColor 0.1 0.1 0.1
+}
+
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      material1 "WheelMat"
+      coulombFriction [0, 2, 0]
+      bounce 0
+    }
+  ]
+}
+
+Viewpoint {
+  orientation -0.245 0.115 0.962 4.079
+  position 1.97 1.54 1.86
+}
+DirectionalLight {
+  direction 0.4 -0.5 -1
+  intensity 1
+}
+RectangleArena {
+  floorSize 5 5
+}
+Robotino3 {
+  rotation 0 0 1 0.3491
+  translation 0 0 0.1
+  controller "<extern>" 
+  topSlot [
+    Robotino3HokuyoMountingSupport {
+      extensionSlot [
+        HokuyoUrg04lxug01 {
+        }
+      ]
+    }
+    # --- Pose Sensors Added ---
+    GPS {
+      name "gps"
+      resolution 0.0 # Perfect accuracy
+    }
+    InertialUnit {
+      name "inertial_unit"
+      resolution 0.0 # Perfect accuracy for orientation (Roll, Pitch, Yaw)
+    }
+    # --------------------------
+  ]
+  cameraSlot [
+    Robotino3Webcam {
+    }
+  ]
+}

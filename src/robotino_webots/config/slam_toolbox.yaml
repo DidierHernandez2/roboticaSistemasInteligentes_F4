@@ -1,0 +1,22 @@
+slam_toolbox:
+  ros__parameters:
+    use_sim_time: true
+    mode: "mapping"
+
+    # High-quality map for Webots
+    resolution: 0.02                 # finer cells -> straight, thin walls
+    map_update_interval: 0.5         # don’t spam, but update regularly
+
+    # Update even on small motions
+    minimum_travel_distance: 0.05    # 5 cm
+    minimum_travel_heading: 0.05     # ~3°
+    throttle_scans: 1                # use every scan
+
+    # Reasonable defaults
+    transform_timeout: 0.5
+    max_laser_range: 10.0
+    minimum_time_between_scans: 0.0
+
+    use_scan_matching: true
+    do_loop_closing: true
+    

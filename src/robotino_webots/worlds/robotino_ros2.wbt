@@ -1,0 +1,22 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/released/projects/robots/festo/robotino3/protos/Robotino3.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/released/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.245 0.115 0.962 4.079
+  position 1.97 1.54 1.86
+}
+DirectionalLight {
+  direction 0.4 -0.5 -1
+  intensity 1
+}
+RectangleArena {
+  floorSize 3 3
+}
+Robotino3 {
+  translation 0 0 0.1
+  controller "<extern>"
+}

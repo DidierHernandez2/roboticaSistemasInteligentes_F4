@@ -1,0 +1,6 @@
+string text
+bool wait
+---
+bool success
+string message
+
