@@ -1,0 +1,191 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Name: Grid
+      Plane: XY
+      Value: true
+
+    - Alpha: 1.0
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: true
+      Enabled: false
+      Name: BayesianMap
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /bayesian_map
+      Value: false
+
+    - Alpha: 0.7
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: false
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+      Value: false
+
+    - Alpha: 1.0
+      Autocompute Intensity Bounds: true
+      Class: rviz_default_plugins/LaserScan
+      Color: 255; 0; 0
+      Color Transformer: FlatColor
+      Enabled: true
+      Name: LaserScan
+      Size (m): 0.05
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /scan
+      Value: true
+
+    - Class: rviz_default_plugins/RobotModel
+      Description Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Name: RobotModel
+      Value: true
+
+    - Alpha: 0.6
+      Class: rviz_default_plugins/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: false
+      Name: PotentialField
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /potential_field_map
+      Value: false
+
+    - Alpha: 1.0
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 0; 255; 0
+      Enabled: true
+      Head Diameter: 0.1
+      Head Length: 0.07
+      Line Style: Lines
+      Line Width: 0.05
+      Name: PlannedPath
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /planned_path
+      Value: true
+
+    - Alpha: 0.45
+      Class: rviz_default_plugins/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: false
+      Name: RobotTrace
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_trace
+      Value: false
+
+    - Class: rviz_default_plugins/PointCloud2
+      Enabled: true
+      Name: LaserMap
+      Color: 255; 0; 0
+      Size (m): 0.03
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /laser_map
+      Value: true
+
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: PersonGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /person_goal_marker
+      Value: true
+
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Name: TF
+      Value: false
+
+  Enabled: true
+  Fixed Frame: map
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /goal_pose
+
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Current View
+      Value: true

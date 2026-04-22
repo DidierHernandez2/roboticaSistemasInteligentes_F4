@@ -65,6 +65,10 @@ class YoloServiceNode(Node):
         # --- Debug image publisher ---
         self.debug_pub = self.create_publisher(Image, "/vision/yolo_debug_image", 10)
 
+        # --- Class names publisher (for person detection node) ---
+        from std_msgs.msg import String
+        self.detections_pub = self.create_publisher(String, "/vision/yolo_class_names", 10)
+
         # --- YOLO seg model ---
         self.model = YOLO(model_path)
         self.class_names = self.model.names  # dict: id -> name
@@ -297,6 +301,13 @@ class YoloServiceNode(Node):
             response.poses.append(pose_out)
 
         response.detections = detections_msg
+
+        # Publish detected class names for other nodes to consume
+        from std_msgs.msg import String
+        names_msg = String()
+        names_msg.data = ','.join(response.class_names)
+        self.detections_pub.publish(names_msg)
+
         self.get_logger().info(
             f"[YOLO_SERVICE] Request handled: {len(detections_msg.detections)} detections, "
             f"3D={'yes' if depth_ok else 'no'} (poses valid only when 3D), "

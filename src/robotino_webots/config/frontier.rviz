@@ -1,0 +1,130 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+
+Visualization Manager:
+  Class: ""
+  Displays:
+
+    # Fondo grid
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Name: Grid
+      Plane: XY
+      Value: true
+
+    # Modelo del robot
+    - Class: rviz_default_plugins/RobotModel
+      Description Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Name: RobotModel
+      Value: true
+
+    # Puntos LIDAR acumulados (mapa persistente)
+    - Class: rviz_default_plugins/PointCloud2
+      Enabled: true
+      Name: LaserMap
+      Color: 255; 60; 60
+      Size (m): 0.05
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /laser_map
+      Value: true
+
+    # Scan LIDAR en tiempo real
+    - Alpha: 1.0
+      Autocompute Intensity Bounds: true
+      Class: rviz_default_plugins/LaserScan
+      Color: 255; 160; 0
+      Color Transformer: FlatColor
+      Enabled: true
+      Name: LaserScan
+      Size (m): 0.04
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /scan
+      Value: true
+
+    # Camino A* planeado
+    - Alpha: 1.0
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 0; 200; 255
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.04
+      Name: PlannedPath
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /planned_path
+      Value: true
+
+    # Clusters de fronteras (esferas amarillas/verdes)
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Frontiers
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /frontier_markers
+      Value: true
+
+    # Objetivo frontier actual (esfera verde grande)
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: FrontierGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /frontier_goal_marker
+      Value: true
+
+    # TF (desactivado por defecto)
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Name: TF
+      Value: false
+
+  Enabled: true
+  Fixed Frame: map
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Current View
+      Value: true
